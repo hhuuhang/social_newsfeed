@@ -15,3 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # social_newsfeed
+
+Run one of the two statements below to generate parse Json model
+flutter packages pub run build_runner build
+flutter pub run build_runner build --delete-conflicting-outputs
