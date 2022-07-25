@@ -63,6 +63,7 @@ flutter:
     - assets/fonts/
     - assets/fonts/
     - assets/images/
+    - assets/icons/
     - assets/data/
     - assets/mock/
   #   - images/a_dot_burr.jpeg
