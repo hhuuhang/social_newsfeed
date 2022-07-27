@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_newsfeed/modules/02_login/page/login_page.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/white_button.dart';
 import 'package:social_newsfeed/themes/app_fonts.dart';
@@ -54,7 +55,12 @@ class WelcomePage extends StatelessWidget {
               ),
               WhiteButton(
                 content: 'Login',
-                onClick: () {},
+                onClick: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()));
+                },
               ),
               const SizedBox(
                 height: 14,
