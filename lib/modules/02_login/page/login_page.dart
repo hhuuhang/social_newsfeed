@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:social_newsfeed/modules/02_login/widgets/text_field_custom.dart';
 import 'package:social_newsfeed/themes/app_fonts.dart';
 
 class LoginPage extends StatelessWidget {
@@ -34,7 +34,8 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(30),
                 child: Column(
-                  children: [
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
                     Text(
                       "Welcome back",
                       style: TextStyle(
@@ -45,14 +46,20 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Welcome back",
+                      "Login to your account",
                       style: TextStyle(
                         fontFamily: AppFonts.avenir,
                         fontSize: 20,
-                        fontWeight: FontWeight.w900,
                         color: Colors.white,
                       ),
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    TextField(),
+                    // CustomTextField(
+                    //   hint: "Email",
+                    // ),
                   ],
                 ),
               ),
