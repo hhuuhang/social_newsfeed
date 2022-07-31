@@ -80,7 +80,7 @@ class LoginPage extends StatelessWidget {
                         CustomTextField(
                           hint: "Email",
                           inputType: TextInputType.text,
-                          obscureText: true,
+                          obscureText: false,
                         ),
                         const SizedBox(
                           height: 20,

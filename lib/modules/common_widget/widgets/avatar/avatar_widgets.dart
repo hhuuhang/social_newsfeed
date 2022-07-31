@@ -90,6 +90,38 @@ class _AvatarState extends State<Avatar> {
   }
 }
 
+//avatar just Image and Custom Size
+class AvatarCustomSize extends StatefulWidget {
+  const AvatarCustomSize(
+      {Key? key,
+      required this.picture,
+      required this.width,
+      required this.height})
+      : super(key: key);
+  final String picture;
+  final double width;
+  final double height;
+  @override
+  AvatarCustomSizeState createState() => AvatarCustomSizeState();
+}
+
+class AvatarCustomSizeState extends State<AvatarCustomSize> {
+  get height => null;
+
+  get width => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(widget.picture),
+      ),
+    );
+  }
+}
+
 class ActiveStatusGreen extends StatelessWidget {
   const ActiveStatusGreen({Key? key}) : super(key: key);
 

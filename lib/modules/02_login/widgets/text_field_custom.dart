@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hint;
@@ -8,17 +6,19 @@ class CustomTextField extends StatefulWidget {
   final TextInputType inputType;
   final bool obscureText;
 
-  CustomTextField({
+  const CustomTextField({
+    Key? key,
     required this.hint,
     // required this.controller,
     this.inputType = TextInputType.text,
     this.obscureText = false,
-  });
+  }) : super(key: key);
 
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  @override
+  CustomTextFieldState createState() => CustomTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class CustomTextFieldState extends State<CustomTextField> {
   late Color currentColor;
 
   @override
@@ -29,12 +29,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
         alignment: Alignment.center,
         height: 44,
         decoration: BoxDecoration(
-          color: Color.fromARGB(185, 0, 0, 0),
+          color: const Color.fromARGB(185, 0, 0, 0),
           borderRadius: BorderRadius.circular(24),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextField(
+            style: const TextStyle(color: Colors.white),
             obscureText: widget.obscureText,
             //keyboardType: widget.inputType,
             // controller: widget.controller,
