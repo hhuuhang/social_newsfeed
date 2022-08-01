@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:social_newsfeed/modules/01_welcome_page/widgets/bottom_navigator_bar.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomNavigator(),
       body: Container(
         color: const Color(0xff242A37),
         child: SafeArea(
@@ -38,7 +36,7 @@ class HomePage extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          Text("ajbvh"),
+                          Text("Search"),
                         ],
                       ),
                     ),

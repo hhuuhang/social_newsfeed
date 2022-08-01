@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_newsfeed/modules/02_login/page/login_page.dart';
+import 'package:social_newsfeed/modules/06_home_page/page/dash_board.dart';
 import 'package:social_newsfeed/modules/06_home_page/page/home_page.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/white_button.dart';
@@ -107,7 +108,7 @@ class WelcomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomePage()));
+                                  builder: (context) => const DashboardPage()));
                         },
                       ),
                     ),
