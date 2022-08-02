@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const Color backgroundColor = Color(0xff242A37);
+
   static const Color activeStateBlue = Color(0xff007AFF);
   static const Color activeStateGreen = Color(0xff7ED321);
 
