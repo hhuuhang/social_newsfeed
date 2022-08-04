@@ -3,8 +3,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:social_newsfeed/models/chats/chat.dart';
 import 'package:social_newsfeed/models/users/user.dart';
-import 'package:social_newsfeed/modules/messages/repos/call_api_message.dart';
-import 'package:social_newsfeed/modules/messages/widgets/messages_widget.dart';
+import 'package:social_newsfeed/modules/08_messages/repos/call_api_message.dart';
+import 'package:social_newsfeed/modules/08_messages/widgets/messages_widget.dart';
 
 import 'package:social_newsfeed/themes/app_colors.dart';
 import 'package:social_newsfeed/themes/app_styles.dart';

@@ -4,7 +4,7 @@ import 'package:social_newsfeed/models/chats/chat.dart';
 import 'package:social_newsfeed/models/users/user.dart';
 
 Future<Users> readJsonFromAssetUsers() async {
-  const assetKey = 'assets/data/mock/users.json';
+  const assetKey = 'assets/mock/users.json';
   final json = await rootBundle.loadString(assetKey);
   final map = jsonDecode(json);
   print(map);
@@ -17,7 +17,7 @@ Future<Users> readJsonFromAssetUsers() async {
 }
 
 Future<Chats> readJsonFromAssetChats() async {
-  const assetKey = 'assets/data/mock/chats.json';
+  const assetKey = 'assets/mock/chats.json';
   final json = await rootBundle.loadString(assetKey);
   final map = jsonDecode(json);
 

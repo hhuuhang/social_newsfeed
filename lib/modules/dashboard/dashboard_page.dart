@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:social_newsfeed/common/data_type/list_screen.dart';
 import 'package:social_newsfeed/modules/01_welcome_page/page/welcome_page.dart';
 import 'package:social_newsfeed/modules/02_login/page/login_page.dart';
+import 'package:social_newsfeed/modules/08_messages/pages/messages.dart';
 import 'package:social_newsfeed/modules/common_widget/pages/common_widget_page.dart';
 import 'package:social_newsfeed/modules/dashboard/widgets/card_screen.dart';
-import 'package:social_newsfeed/modules/messages/pages/message_page.dart';
 
 class DashBoardPage extends StatelessWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class DashBoardPage extends StatelessWidget {
               ),
               CardScreen(
                 title: listScreen[3],
-                pageWidget: const MessagePage(),
+                pageWidget: const MessagesPage(),
               )
             ],
           )),

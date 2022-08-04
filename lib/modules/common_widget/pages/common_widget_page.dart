@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/white_button.dart';
-import 'package:social_newsfeed/modules/messages/widgets/messages_widget.dart';
+import 'package:social_newsfeed/modules/08_messages/widgets/messages_widget.dart';
 // import 'package:social_newsfeed/modules/common_widget/widgets/messages/messages_widget.dart';
 
 Map personInfor = {
