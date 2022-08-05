@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:social_newsfeed/modules/02_login/widgets/text_field_custom.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/themes/app_fonts.dart';

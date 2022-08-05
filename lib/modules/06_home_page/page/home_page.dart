@@ -54,7 +54,8 @@ class HomePage extends StatelessWidget {
             Text(
               "Home Page",
               style: TextStyle(color: Colors.red, fontSize: 40),
-            )
+            ),
+            ListView(),
           ],
         )),
       ),
