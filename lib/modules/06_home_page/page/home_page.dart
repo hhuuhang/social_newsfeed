@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Text(
-              "Home Page bloc",
+              "Home Page bloc todo",
               style: TextStyle(color: Colors.red, fontSize: 40),
             ),
             ListView(),
