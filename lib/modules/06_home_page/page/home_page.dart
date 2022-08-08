@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
 
 class HomePage extends StatelessWidget {
