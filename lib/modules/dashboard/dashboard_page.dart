@@ -3,6 +3,7 @@ import 'package:social_newsfeed/common/data_type/list_screen.dart';
 import 'package:social_newsfeed/modules/01_welcome_page/page/welcome_page.dart';
 import 'package:social_newsfeed/modules/02_login/page/login_page.dart';
 import 'package:social_newsfeed/modules/08_messages/pages/messages.dart';
+import 'package:social_newsfeed/modules/10_profile_user/pages/profile_user.dart';
 import 'package:social_newsfeed/modules/common_widget/pages/common_widget_page.dart';
 import 'package:social_newsfeed/modules/dashboard/widgets/card_screen.dart';
 
@@ -43,6 +44,10 @@ class DashBoardPage extends StatelessWidget {
               CardScreen(
                 title: listScreen[3],
                 pageWidget: const MessagesPage(),
+              ),
+              CardScreen(
+                title: listScreen[4],
+                pageWidget: const ProfileUserPage(),
               )
             ],
           )),
