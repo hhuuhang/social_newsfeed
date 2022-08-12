@@ -31,9 +31,9 @@ class _MessagesPageState extends State<MessagesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.dark,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.dark,
+        backgroundColor: AppColors.backgroundColor,
         actions: [
           IconButton(
             icon: const Icon(Icons.add),

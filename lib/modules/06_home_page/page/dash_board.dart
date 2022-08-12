@@ -4,6 +4,7 @@ import 'package:social_newsfeed/modules/07_streams/pages/streams.dart';
 import 'package:social_newsfeed/modules/08_messages/pages/messages.dart';
 import 'package:social_newsfeed/modules/09_notifications/pages/notifications.dart';
 import 'package:social_newsfeed/modules/10_profile_user/pages/profile_user.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xff242A37),
+        backgroundColor: AppColors.backgroundColor,
         selectedItemColor: const Color(0xffF54B64),
         unselectedItemColor: const Color(0xff4E586E),
         currentIndex: _index, // this will be set when a new tab is tapped
