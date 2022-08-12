@@ -75,4 +75,8 @@ class _DashboardPageState extends State<DashboardPage> {
       _index = index;
     });
   }
+
+  void backHome() {
+    _index = 0;
+  }
 }
