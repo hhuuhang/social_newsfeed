@@ -156,7 +156,7 @@ class ProfileUserPage extends StatelessWidget {
                   )
                 ],
               ),
-              UpTabBar(),
+              // UpTabBar(),
               Text(
                 "asc",
                 style: TextStyle(
