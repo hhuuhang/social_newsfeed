@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:social_newsfeed/modules/10_profile_user/widget/tab_bar.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
+import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/themes/app_colors.dart';
 import 'package:social_newsfeed/modules/06_home_page/page/dash_board.dart';
 
@@ -23,7 +24,10 @@ class ProfileUserPage extends StatelessWidget {
                   Container(
                     width: maxWidth,
                     height: maxWidth * 2 / 3,
-                    color: Colors.red,
+                    child: FittedBox(
+                      child: Image.asset("assets/images/Rectangle.png"),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
@@ -68,12 +72,17 @@ class ProfileUserPage extends StatelessWidget {
                             width: 20,
                           ),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "name",
-                                style: TextStyle(fontSize: 40),
+                                "Jorge Curtis",
+                                style: TextStyle(
+                                    fontSize: 30, color: Colors.white),
                               ),
-                              Text("@abc"),
+                              Text(
+                                "@jorgecutis",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ],
                           ),
                         ],
@@ -82,79 +91,85 @@ class ProfileUserPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Text(
-                            "1234",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          Text(
-                            "Posts",
-                            style: TextStyle(
-                                color: Color(0xff4E586E), fontSize: 18),
-                          ),
-                        ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Text(
+                              "1234",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Text(
+                              "Posts",
+                              style: TextStyle(
+                                  color: Color(0xff4E586E), fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Text(
-                            "1234",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          Text(
-                            "Following",
-                            style: TextStyle(
-                                color: Color(0xff4E586E), fontSize: 18),
-                          ),
-                        ],
+                    Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Text(
+                              "1234",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Text(
+                              "Following",
+                              style: TextStyle(
+                                  color: Color(0xff4E586E), fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Text(
-                            "1234",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          Text(
-                            "Follower",
-                            style: TextStyle(
-                                color: Color(0xff4E586E), fontSize: 18),
-                          ),
-                        ],
+                    Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Text(
+                              "1234",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Text(
+                              "Follower",
+                              style: TextStyle(
+                                  color: Color(0xff4E586E), fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("assets/icons/add_friends.png"),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset("assets/icons/add_friends.png"),
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      color: Color.fromARGB(255, 17, 35, 232),
-                    ),
-                  )
-                ],
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        child: PrimaryButton(content: "FOLLOW", onClick: () {}),
+                      ),
+                    )
+                  ],
+                ),
               ),
               // UpTabBar(),
               Text(
