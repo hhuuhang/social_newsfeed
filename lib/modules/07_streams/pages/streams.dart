@@ -10,7 +10,7 @@ class StreamsPage extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Streams Page",
+          "Streams Page \n Coming soon \n todo",
           style: TextStyle(
             fontSize: 50,
           ),

@@ -92,64 +92,57 @@ class ProfileUserPage extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 2,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "1234",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            Text(
-                              "Posts",
-                              style: TextStyle(
-                                  color: Color(0xff4E586E), fontSize: 18),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "1234",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            Text(
-                              "Following",
-                              style: TextStyle(
-                                  color: Color(0xff4E586E), fontSize: 18),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "1234",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            Text(
-                              "Follower",
-                              style: TextStyle(
-                                  color: Color(0xff4E586E), fontSize: 18),
-                            ),
-                          ],
-                        ),
+                      flex: 3,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                "128",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                              Text(
+                                "Posts",
+                                style: TextStyle(
+                                    color: Color(0xff4E586E), fontSize: 15),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "3120",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                              Text(
+                                "Following",
+                                style: TextStyle(
+                                    color: Color(0xff4E586E), fontSize: 15),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "5024",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                              Text(
+                                "Follower",
+                                style: TextStyle(
+                                    color: Color(0xff4E586E), fontSize: 15),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(
@@ -173,7 +166,7 @@ class ProfileUserPage extends StatelessWidget {
               ),
               // UpTabBar(),
               Text(
-                "asc",
+                "Posts here !!",
                 style: TextStyle(
                   color: Colors.pink,
                   fontSize: 40,
