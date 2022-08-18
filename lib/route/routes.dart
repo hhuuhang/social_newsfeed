@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_newsfeed/modules/06_home_page/page/dash_board.dart';
+import 'package:social_newsfeed/modules/06_home_page/page/home_page.dart';
 import 'package:social_newsfeed/modules/authentication/pages/welcome_page.dart';
 import 'package:social_newsfeed/modules/posts/blocs/list_posts_rxdart_bloc.dart';
 import 'package:social_newsfeed/modules/posts/blocs/post_detail_bloc.dart';
@@ -37,6 +38,12 @@ class Routes {
           );
         }
         return _errorRoute();
+
+      case RouteName.DashboardPage:
+        return _buildRouteDialog(
+          settings,
+          const DashboardPage(),
+        );
       default:
         return _errorRoute();
     }
