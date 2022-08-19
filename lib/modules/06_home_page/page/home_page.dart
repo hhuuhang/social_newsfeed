@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/avatar/avatar_widgets.dart';
 import 'package:social_newsfeed/themes/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +44,14 @@ class HomePage extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    const AvatarCustomSize(
-                        picture:
-                            "https://randomuser.me/api/portraits/men/24.jpg",
-                        width: 40,
-                        height: 40),
+                    InkWell(
+                      onTap: _signOut,
+                      child: const AvatarCustomSize(
+                          picture:
+                              "https://randomuser.me/api/portraits/men/24.jpg",
+                          width: 40,
+                          height: 40),
+                    ),
                   ],
                 ),
               ),
@@ -60,5 +64,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut();
+    await GoogleSignIn().signOut();
   }
 }
