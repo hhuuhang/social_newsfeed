@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social_newsfeed/common/mixin/scroll_page_mixin.dart';
 import 'package:social_newsfeed/common/widgets/stateless/activity_indicator.dart';
+import 'package:social_newsfeed/modules/06_home_page/widgets/home_header.dart';
 import 'package:social_newsfeed/modules/posts/blocs/list_posts_rxdart_bloc.dart';
 import 'package:social_newsfeed/modules/posts/models/post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/post_item_remake.dart';
 import 'package:social_newsfeed/route/route_name.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 
 class ListPostsPagingRepo extends StatefulWidget {
   const ListPostsPagingRepo({Key? key}) : super(key: key);
@@ -42,19 +44,16 @@ class _ListPostsPagingRepoState extends State<ListPostsPagingRepo>
         physics: const AlwaysScrollableScrollPhysics(),
         controller: _scrollCtrl,
         slivers: <Widget>[
-          SliverAppBar(
-            title: const Text('Post'),
+          const SliverAppBar(
+            title: HomeHeader(),
             snap: true,
             floating: true,
             elevation: 1,
             forceElevated: true,
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/day09');
-                  },
-                  icon: const Icon(Icons.ac_unit))
-            ],
+            backgroundColor: AppColors.backgroundColor,
+            // actions: [
+            //   IconButton(onPressed: () {}, icon: const Icon(Icons.logout))
+            // ],
           ),
           CupertinoSliverRefreshControl(
             onRefresh: _postsBloc.refresh,
