@@ -4,6 +4,7 @@ import 'package:social_newsfeed/modules/07_streams/pages/streams.dart';
 import 'package:social_newsfeed/modules/08_messages/pages/messages.dart';
 import 'package:social_newsfeed/modules/09_notifications/pages/notifications.dart';
 import 'package:social_newsfeed/modules/10_profile_user/pages/profile_user.dart';
+import 'package:social_newsfeed/modules/posts/pages/list_posts_paging_page.dart';
 import 'package:social_newsfeed/themes/app_colors.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -16,7 +17,8 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   int _index = 0;
   final List<Widget> _children = [
-    const HomePage(),
+    // const HomePage(),
+    const ListPostsPagingRepo(),
     const StreamsPage(),
     const MessagesPage(),
     const NotificationsPage(),
