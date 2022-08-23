@@ -78,9 +78,13 @@ class ItemRow extends StatelessWidget {
     if (title != null) {
       built = Text(
         title!,
+        style: const TextStyle(
+          color: Colors.white,
+          // fontSize: 20,
+        ),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: Theme.of(context).textTheme.subtitle1,
+        // style: Theme.of(context).textTheme.subtitle1,
       );
     }
 

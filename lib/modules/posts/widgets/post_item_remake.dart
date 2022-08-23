@@ -4,6 +4,7 @@ import 'package:social_newsfeed/modules/posts/models/post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/action_post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/grid_image.dart';
 import 'package:social_newsfeed/route/route_name.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 
 class PostItemRemake extends StatelessWidget {
   final Post post;
@@ -13,10 +14,12 @@ class PostItemRemake extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: AppColors.backgroundColor,
       padding: const EdgeInsets.fromLTRB(12, 16, 12, 0),
       child: GestureDetector(
         onTap: () => _navigateToPostDetailPage(context),
         child: Card(
+          color: Color(0xff4E586E),
           margin: const EdgeInsets.symmetric(horizontal: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

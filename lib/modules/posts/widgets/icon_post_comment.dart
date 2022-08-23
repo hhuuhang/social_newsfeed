@@ -9,7 +9,11 @@ class IconPostComment extends StatelessWidget {
     return Container(
       color: Colors.transparent,
       padding: const EdgeInsets.all(8),
-      child: const Icon(CupertinoIcons.conversation_bubble),
+      child: const Icon(
+        // CupertinoIcons.conversation_bubble,
+        Icons.comment,
+        color: Colors.white,
+      ),
     );
   }
 }

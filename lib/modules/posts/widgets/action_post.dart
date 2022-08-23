@@ -72,7 +72,10 @@ class _ActionPostState extends State<ActionPost> {
                     deActivatedChild: Container(
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(8),
-                      child: const Icon(CupertinoIcons.heart),
+                      child: const Icon(
+                        CupertinoIcons.heart_fill,
+                        color: Colors.white,
+                      ),
                     ),
                     activatedChild: Container(
                       color: Colors.transparent,

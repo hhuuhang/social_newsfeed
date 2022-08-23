@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:social_newsfeed/utils/string_utils.dart';
 
@@ -18,7 +20,8 @@ class TextCountNumber extends StatelessWidget {
       padding: const EdgeInsets.only(top: 2, right: 8, bottom: 4),
       child: Text(
         "${StringUtils.formatK(number)} $subText",
-        style: Theme.of(context).textTheme.caption,
+        style: const TextStyle(color: Colors.white),
+        // style: Theme.of(context).textTheme.caption,
       ),
     );
   }
