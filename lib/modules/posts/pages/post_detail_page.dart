@@ -6,6 +6,7 @@ import 'package:social_newsfeed/modules/posts/models/post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/action_post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/grid_image.dart';
 import 'package:social_newsfeed/providers/bloc_provider.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 
 class PostDetailPage extends StatefulWidget {
   final Post post;
@@ -47,53 +48,58 @@ class _PostDetailPageState extends State<PostDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<Post>(
-          stream: bloc!.postsStream,
-          initialData: widget.post,
-          builder: (context, snapshot) {
-            final post = snapshot.data;
-            return Stack(
-              children: [
-                CustomScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    slivers: <Widget>[
-                      const SliverAppBar(
-                        title: Text('Post Detail Page'),
-                        snap: true,
-                        floating: true,
-                        elevation: 1,
-                        forceElevated: true,
-                        // actions: [
-                        //   IconButton(
-                        //       onPressed: _writeCmt, icon: const Icon(Icons.add))
-                        // ],
-                      ),
-                      CupertinoSliverRefreshControl(
-                        onRefresh: bloc!.getPost,
-                      ),
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
-                              child: ItemRow(
-                                avatarUrl: post!.urlUserAvatar,
-                                title: post.displayName,
-                                subtitle: 'Time created',
-                                onTap: () {},
-                              ),
-                            ),
-                            if (post.photos != null)
-                              GridImage(photos: post.photos!, padding: 0),
-                            ActionPost(post: post),
-                            const Divider(thickness: 1),
-                          ],
+      body: Container(
+        color: AppColors.backgroundColor,
+        child: StreamBuilder<Post>(
+            stream: bloc!.postsStream,
+            initialData: widget.post,
+            builder: (context, snapshot) {
+              final post = snapshot.data;
+              return Stack(
+                children: [
+                  CustomScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      slivers: <Widget>[
+                        const SliverAppBar(
+                          backgroundColor: AppColors.backgroundColor,
+                          title: Text('Post Detail Page'),
+                          snap: true,
+                          floating: true,
+                          elevation: 1,
+                          forceElevated: true,
+                          // actions: [
+                          //   IconButton(
+                          //       onPressed: _writeCmt, icon: const Icon(Icons.add))
+                          // ],
                         ),
-                      ),
-                    ]),
-              ],
-            );
-          }),
+                        CupertinoSliverRefreshControl(
+                          onRefresh: bloc!.getPost,
+                        ),
+                        SliverList(
+                          delegate: SliverChildListDelegate(
+                            [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(12, 12, 12, 8),
+                                child: ItemRow(
+                                  avatarUrl: post!.urlUserAvatar,
+                                  title: post.displayName,
+                                  subtitle: 'Time created',
+                                  onTap: () {},
+                                ),
+                              ),
+                              if (post.photos != null)
+                                GridImage(photos: post.photos!, padding: 0),
+                              ActionPost(post: post),
+                              const Divider(thickness: 1),
+                            ],
+                          ),
+                        ),
+                      ]),
+                ],
+              );
+            }),
+      ),
     );
   }
 }

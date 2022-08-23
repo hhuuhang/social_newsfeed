@@ -7,6 +7,7 @@ import 'package:social_newsfeed/modules/posts/repos/like_repo.dart';
 import 'package:social_newsfeed/modules/posts/widgets/icon_post_comment.dart';
 import 'package:social_newsfeed/modules/posts/widgets/text_count_number.dart';
 import 'package:social_newsfeed/modules/posts/widgets/toggle.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 import 'package:social_newsfeed/utils/model_type.dart';
 
 class ActionPost extends StatefulWidget {
@@ -55,6 +56,7 @@ class _ActionPostState extends State<ActionPost> {
               post.description!,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         Row(
