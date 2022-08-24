@@ -19,7 +19,8 @@ class PostItemRemake extends StatelessWidget {
       child: GestureDetector(
         onTap: () => _navigateToPostDetailPage(context),
         child: Card(
-          color: Color(0xff4E586E),
+          // color: Color(0xff4E586E),
+          color: AppColors.backgroundColor,
           margin: const EdgeInsets.symmetric(horizontal: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
