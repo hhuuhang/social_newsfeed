@@ -11,7 +11,7 @@ class GridImage extends StatelessWidget {
   const GridImage({
     Key? key,
     required this.photos,
-    this.padding = 12,
+    this.padding = 10,
   }) : super(key: key);
 
   @override
@@ -32,11 +32,9 @@ class GridImage extends StatelessWidget {
       case 3:
         return _buildThreeImage(photos, width, context);
       case 4:
-        // TODO:
-        return _buildOneImage(photos[0], width, context);
+        return _buildFourImage(photos, width, context);
       case 5:
-        // TODO:
-        return _buildOneImage(photos[0], width, context);
+        return _buildFiveImage(photos, width, context);
       default:
         return _buildOneImage(photos[0], width, context);
     }
@@ -214,6 +212,208 @@ class GridImage extends StatelessWidget {
             width: width,
             height: itemHeight,
             onTap: () => navigateToPhotoPage(photos, 0, context),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFourImage(
+      List<Photo> photos, double width, BuildContext context) {
+    final firstImg = photos[0].image;
+
+    // first vertical style images
+    if (firstImg!.orgHeight! > firstImg.orgWidth!) {
+      final height = width;
+      final itemHeight = height;
+      final itemWidth = width - padding;
+      return SizedBox(
+        height: height,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            PostImgItem(
+              url: photos[0].url,
+              width: itemWidth * 2 / 3,
+              height: itemHeight,
+              onTap: () => navigateToPhotoPage(photos, 0, context),
+            ),
+            _buildPadding(),
+            Column(
+              children: <Widget>[
+                PostImgItem(
+                  url: photos[1].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 1, context),
+                ),
+                _buildPadding(),
+                PostImgItem(
+                  url: photos[2].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 2, context),
+                ),
+                _buildPadding(),
+                PostImgItem(
+                  url: photos[3].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 3, context),
+                ),
+              ],
+            )
+          ],
+        ),
+      );
+    }
+
+    final height = width;
+    final itemWidth = (width - padding) / 3;
+    final itemHeight = (height - padding) / 3;
+    return SizedBox(
+      height: height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          PostImgItem(
+            url: photos[0].url,
+            width: width,
+            height: itemHeight * 2,
+            onTap: () => navigateToPhotoPage(photos, 0, context),
+          ),
+          _buildPadding(),
+          Row(
+            children: <Widget>[
+              PostImgItem(
+                url: photos[1].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 1, context),
+              ),
+              _buildPadding(),
+              PostImgItem(
+                url: photos[2].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 2, context),
+              ),
+              _buildPadding(),
+              PostImgItem(
+                url: photos[3].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 3, context),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFiveImage(
+      List<Photo> photos, double width, BuildContext context) {
+    final firstImg = photos[0].image;
+
+    // first vertical style images
+    if (firstImg!.orgHeight! > firstImg.orgWidth!) {
+      final height = width;
+      final itemHeight = height;
+      final itemWidth = width - (padding * 2);
+      return SizedBox(
+        height: height,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SizedBox(
+              width: itemWidth / 2,
+              child: Column(
+                children: <Widget>[
+                  PostImgItem(
+                    url: photos[0].url,
+                    width: (itemWidth * 2 / 3) - padding,
+                    height: itemHeight / 2,
+                    onTap: () => navigateToPhotoPage(photos, 0, context),
+                  ),
+                  _buildPadding(),
+                  PostImgItem(
+                    url: photos[1].url,
+                    width: (itemWidth * 2 / 3) - padding,
+                    height: itemHeight / 2,
+                    onTap: () => navigateToPhotoPage(photos, 1, context),
+                  ),
+                ],
+              ),
+            ),
+            _buildPadding(),
+            Column(
+              children: <Widget>[
+                PostImgItem(
+                  url: photos[2].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 2, context),
+                ),
+                _buildPadding(),
+                PostImgItem(
+                  url: photos[3].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 3, context),
+                ),
+                _buildPadding(),
+                PostImgItem(
+                  url: photos[4].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 4, context),
+                ),
+              ],
+            )
+          ],
+        ),
+      );
+    }
+
+    final height = width;
+    final itemWidth = (width - padding) / 3;
+    final itemHeight = (height - padding) / 3;
+    return SizedBox(
+      height: height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          PostImgItem(
+            url: photos[0].url,
+            width: width,
+            height: itemHeight * 2,
+            onTap: () => navigateToPhotoPage(photos, 0, context),
+          ),
+          _buildPadding(),
+          Row(
+            children: <Widget>[
+              PostImgItem(
+                url: photos[1].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 1, context),
+              ),
+              _buildPadding(),
+              PostImgItem(
+                url: photos[2].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 2, context),
+              ),
+              _buildPadding(),
+              PostImgItem(
+                url: photos[3].url,
+                width: itemWidth,
+                height: itemHeight,
+                onTap: () => navigateToPhotoPage(photos, 3, context),
+              ),
+            ],
           ),
         ],
       ),
