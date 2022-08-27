@@ -320,27 +320,27 @@ class GridImage extends StatelessWidget {
     if (firstImg!.orgHeight! > firstImg.orgWidth!) {
       final height = width;
       final itemHeight = height;
-      final itemWidth = width - (padding * 2);
+      final itemWidth = width - padding;
       return SizedBox(
         height: height,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(
-              width: itemWidth / 2,
+              width: (itemWidth * 2 / 3.5) - padding,
               child: Column(
                 children: <Widget>[
                   PostImgItem(
                     url: photos[0].url,
                     width: (itemWidth * 2 / 3) - padding,
-                    height: itemHeight / 2,
+                    height: itemHeight * 2 / 3,
                     onTap: () => navigateToPhotoPage(photos, 0, context),
                   ),
                   _buildPadding(),
                   PostImgItem(
                     url: photos[1].url,
                     width: (itemWidth * 2 / 3) - padding,
-                    height: itemHeight / 2,
+                    height: itemHeight / 3,
                     onTap: () => navigateToPhotoPage(photos, 1, context),
                   ),
                 ],
