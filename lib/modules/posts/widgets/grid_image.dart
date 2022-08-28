@@ -385,57 +385,64 @@ class GridImage extends StatelessWidget {
     final itemHeight = (height - padding) / 2;
     return SizedBox(
       height: height,
-      // child: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.stretch,
-      //   children: <Widget>[
-      //     PostImgItem(
-      //       url: photos[0].url,
-      //       width: width,
-      //       height: itemHeight,
-      //       onTap: () => navigateToPhotoPage(photos, 0, context),
-      //     ),
-      //     _buildPadding(),
-      //     Row(
-      //       children: <Widget>[
-      //         Column(
-      //           children: [
-      //             PostImgItem(
-      //               url: photos[1].url,
-      //               width: itemWidth,
-      //               height: itemHeight / 2,
-      //               onTap: () => navigateToPhotoPage(photos, 1, context),
-      //             ),
-      //             _buildPadding(),
-      //             PostImgItem(
-      //               url: photos[2].url,
-      //               width: itemWidth,
-      //               height: itemHeight / 2,
-      //               onTap: () => navigateToPhotoPage(photos, 2, context),
-      //             ),
-      //           ],
-      //         ),
-      //         _buildPadding(),
-      //         Column(
-      //           children: [
-      //             PostImgItem(
-      //               url: photos[3].url,
-      //               width: itemWidth,
-      //               height: itemHeight / 2,
-      //               onTap: () => navigateToPhotoPage(photos, 3, context),
-      //             ),
-      //             _buildPadding(),
-      //             PostImgItem(
-      //               url: photos[4].url,
-      //               width: itemWidth,
-      //               height: itemHeight / 2,
-      //               onTap: () => navigateToPhotoPage(photos, 4, context),
-      //             ),
-      //           ],
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          PostImgItem(
+            url: photos[0].url,
+            width: width,
+            height: itemHeight,
+            onTap: () => navigateToPhotoPage(photos, 0, context),
+          ),
+          _buildPadding(),
+          Expanded(
+            flex: 1,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    children: [
+                      PostImgItem(
+                        url: photos[1].url,
+                        width: itemWidth,
+                        height: itemHeight / 2,
+                        onTap: () => navigateToPhotoPage(photos, 1, context),
+                      ),
+                      _buildPadding(),
+                      PostImgItem(
+                        url: photos[2].url,
+                        width: itemWidth,
+                        height: itemHeight / 2,
+                        onTap: () => navigateToPhotoPage(photos, 2, context),
+                      ),
+                    ],
+                  ),
+                ),
+                _buildPadding(),
+                Expanded(
+                  child: Column(
+                    children: [
+                      PostImgItem(
+                        url: photos[3].url,
+                        width: itemWidth,
+                        height: itemHeight / 2,
+                        onTap: () => navigateToPhotoPage(photos, 3, context),
+                      ),
+                      _buildPadding(),
+                      PostImgItem(
+                        url: photos[4].url,
+                        width: itemWidth,
+                        height: itemHeight / 2,
+                        onTap: () => navigateToPhotoPage(photos, 4, context),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
