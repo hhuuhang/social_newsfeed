@@ -19,7 +19,7 @@ class ImageUploadGroup extends StatefulWidget {
 
   const ImageUploadGroup({
     Key? key,
-    this.maxImage = 5,
+    this.maxImage = 9,
     required this.listImages,
     required this.onValueChanged,
     this.folder = "post",

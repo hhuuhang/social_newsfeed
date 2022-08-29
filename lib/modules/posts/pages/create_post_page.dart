@@ -5,6 +5,7 @@ import 'package:social_newsfeed/common/widgets/stateful/upload/widgets/image_upl
 import 'package:social_newsfeed/common/widgets/stateful/upload/widgets/image_upload_item.dart';
 import 'package:social_newsfeed/common/widgets/stateless/loading_hide_keyboard.dart';
 import 'package:social_newsfeed/modules/posts/blocs/create_post_bloc.dart';
+import 'package:social_newsfeed/themes/app_colors.dart';
 
 class CreatePostPage extends StatefulWidget {
   const CreatePostPage({Key? key}) : super(key: key);
@@ -42,7 +43,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create post page'),
+        backgroundColor: AppColors.backgroundColor,
+        title: const Text('Create New Post'),
       ),
       body: LoadingHideKeyboard(
         isLoading: isLoading,
@@ -106,6 +108,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
       padding: const EdgeInsets.only(top: 10),
       height: 50,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: AppColors.backgroundColor,
+        ),
         onPressed: state == UploadGroupState.uploading ? null : createPost,
         child: const Text('Create Post'),
       ),
