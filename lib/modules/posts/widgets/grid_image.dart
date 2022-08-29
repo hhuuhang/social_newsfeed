@@ -36,8 +36,7 @@ class GridImage extends StatelessWidget {
       case 5:
         return _buildFiveImage(photos, width, context);
       default:
-        // return _buildMoreImage(photos, width, context);
-        return _buildOneImage(photos[0], width, context);
+        return _buildMoreImage(photos, width, photos.length, context);
     }
   }
 
@@ -331,12 +330,21 @@ class GridImage extends StatelessWidget {
               flex: 2,
               child: Column(
                 children: <Widget>[
-                  PostImgItem(
-                    flex: 2,
-                    url: photos[0].url,
-                    width: itemWidth * 2 / 3,
-                    height: itemHeight * 2 / 3,
-                    onTap: () => navigateToPhotoPage(photos, 0, context),
+                  // Hard set photos[0] because DataParent problem, will fix later
+                  SizedBox(
+                    height: (((height - 2 * padding) / 3) * 2) + padding,
+                    child: GestureDetector(
+                      onTap: () => navigateToPhotoPage(photos, 0, context),
+                      child: CachedNetworkImage(
+                        imageUrl: PhotoUtils.genImgIx(
+                          photos[0].url,
+                          itemWidth * 2 ~/ 3,
+                          itemHeight * 2 ~/ 3,
+                          focusFace: false,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   _buildPadding(),
                   PostImgItem(
@@ -448,8 +456,9 @@ class GridImage extends StatelessWidget {
   }
 
   Widget _buildMoreImage(
-      List<Photo> photos, double width, BuildContext context) {
+      List<Photo> photos, double width, int totalImg, BuildContext context) {
     final firstImg = photos[0].image;
+    final moreNumber = totalImg - 5;
 
     // first vertical style images
     if (firstImg!.orgHeight! > firstImg.orgWidth!) {
@@ -465,21 +474,28 @@ class GridImage extends StatelessWidget {
               flex: 2,
               child: Column(
                 children: <Widget>[
-                  PostImgItem(
-                    url: photos[0].url,
-                    width: itemWidth * 2 / 3,
-                    height: itemHeight * 2 / 3,
-                    onTap: () => navigateToPhotoPage(photos, 0, context),
+                  // Hard set photos[0] because DataParent problem, will fix later
+                  SizedBox(
+                    height: (((height - 2 * padding) / 3) * 2) + padding,
+                    child: GestureDetector(
+                      onTap: () => navigateToPhotoPage(photos, 0, context),
+                      child: CachedNetworkImage(
+                        imageUrl: PhotoUtils.genImgIx(
+                          photos[0].url,
+                          itemWidth * 2 ~/ 3,
+                          itemHeight * 2 ~/ 3,
+                          focusFace: false,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   _buildPadding(),
-                  SizedBox(
-                    height: (height - (2 * padding)) / 3,
-                    child: PostImgItem(
-                      url: photos[1].url,
-                      width: itemWidth * 2 / 3,
-                      height: (itemHeight - padding) / 3,
-                      onTap: () => navigateToPhotoPage(photos, 1, context),
-                    ),
+                  PostImgItem(
+                    url: photos[1].url,
+                    width: itemWidth * 2 / 3,
+                    height: (itemHeight - (2 * padding)) / 3,
+                    onTap: () => navigateToPhotoPage(photos, 1, context),
                   ),
                 ],
               ),
@@ -503,11 +519,29 @@ class GridImage extends StatelessWidget {
                     onTap: () => navigateToPhotoPage(photos, 3, context),
                   ),
                   _buildPadding(),
-                  PostImgItem(
-                    url: photos[4].url,
-                    width: itemWidth / 3,
-                    height: (itemHeight - padding) / 3,
-                    onTap: () => navigateToPhotoPage(photos, 4, context),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        PostImgItem(
+                          url: photos[4].url,
+                          width: itemWidth / 3,
+                          height: (itemHeight - padding) / 3,
+                          onTap: () => navigateToPhotoPage(photos, 4, context),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: const Color.fromARGB(193, 0, 0, 0),
+                          child: Center(
+                            child: Text(
+                              "+$moreNumber",
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -566,11 +600,37 @@ class GridImage extends StatelessWidget {
                         onTap: () => navigateToPhotoPage(photos, 3, context),
                       ),
                       _buildPadding(),
-                      PostImgItem(
-                        url: photos[4].url,
-                        width: itemWidth,
-                        height: itemHeight / 2,
-                        onTap: () => navigateToPhotoPage(photos, 4, context),
+                      Expanded(
+                        flex: 1,
+                        child: Stack(
+                          children: [
+                            GestureDetector(
+                              onTap: () =>
+                                  navigateToPhotoPage(photos, 4, context),
+                              child: CachedNetworkImage(
+                                imageUrl: PhotoUtils.genImgIx(
+                                  photos[4].url,
+                                  itemWidth.toInt(),
+                                  itemHeight ~/ 2,
+                                  focusFace: false,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              color: const Color.fromARGB(193, 0, 0, 0),
+                              child: Center(
+                                child: Text(
+                                  "+$moreNumber",
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
