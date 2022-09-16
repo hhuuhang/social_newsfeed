@@ -473,61 +473,42 @@ class GridImage extends StatelessWidget {
       final itemWidth = width - padding;
       return SizedBox(
         height: height,
-        child: Stack(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            PostImgItem(
+              url: photos[0].url,
+              width: itemWidth * 2 / 3,
+              height: itemHeight,
+              onTap: () => navigateToPhotoPage(photos, 0, context),
+            ),
+            _buildPadding(),
+            Column(
               children: <Widget>[
                 PostImgItem(
-                  url: photos[0].url,
-                  width: itemWidth * 2 / 3,
-                  height: itemHeight,
-                  onTap: () => navigateToPhotoPage(photos, 0, context),
+                  url: photos[1].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 1, context),
                 ),
                 _buildPadding(),
-                Column(
-                  children: <Widget>[
-                    PostImgItem(
-                      url: photos[1].url,
-                      width: itemWidth / 3,
-                      height: (itemHeight - padding) / 3,
-                      onTap: () => navigateToPhotoPage(photos, 1, context),
-                    ),
-                    _buildPadding(),
-                    PostImgItem(
-                      url: photos[2].url,
-                      width: itemWidth / 3,
-                      height: (itemHeight - padding) / 3,
-                      onTap: () => navigateToPhotoPage(photos, 2, context),
-                    ),
-                    _buildPadding(),
-                    PostImgItem(
-                      url: photos[3].url,
-                      width: itemWidth / 3,
-                      height: (itemHeight - padding) / 3,
-                      onTap: () => navigateToPhotoPage(photos, 3, context),
-                    ),
-                  ],
+                PostImgItem(
+                  url: photos[2].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 2, context),
+                ),
+                _buildPadding(),
+                PostImgItem(
+                  show: true,
+                  moreNumber: moreNumber.toString(),
+                  url: photos[3].url,
+                  width: itemWidth / 3,
+                  height: (itemHeight - padding) / 3,
+                  onTap: () => navigateToPhotoPage(photos, 3, context),
                 ),
               ],
             ),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              width: (itemWidth - padding) / 3,
-              height: (itemHeight - padding * 2) / 3,
-              child: Container(
-                width: 40,
-                height: 40,
-                color: const Color.fromARGB(193, 0, 0, 0),
-                child: Center(
-                  child: Text(
-                    "+$moreNumber",
-                    style: const TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       );

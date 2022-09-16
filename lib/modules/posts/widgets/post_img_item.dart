@@ -8,14 +8,18 @@ class PostImgItem extends StatelessWidget {
   final double height;
   final int flex;
   final VoidCallback onTap;
+  bool show;
+  final String? moreNumber;
 
-  const PostImgItem({
+  PostImgItem({
     Key? key,
     required this.url,
     required this.width,
     required this.height,
     this.flex = 1,
     required this.onTap,
+    this.show = false,
+    this.moreNumber,
   }) : super(key: key);
 
   @override
@@ -24,14 +28,38 @@ class PostImgItem extends StatelessWidget {
       flex: flex,
       child: GestureDetector(
         onTap: onTap,
-        child: CachedNetworkImage(
-          imageUrl: PhotoUtils.genImgIx(
-            url,
-            width.toInt(),
-            height.toInt(),
-            focusFace: false,
+        child: SizedBox(
+          width: width,
+          height: height,
+          child: Stack(
+            fit: StackFit.expand,
+            // clipBehavior: Clip.hardEdge,
+            alignment: Alignment.center,
+            children: [
+              CachedNetworkImage(
+                imageUrl: url,
+                // imageUrl: PhotoUtils.genImgIx(
+                //   url,
+                //   width.toInt(),
+                //   height.toInt(),
+                //   focusFace: false,
+                // ),
+                fit: BoxFit.cover,
+              ),
+              Visibility(
+                visible: show,
+                child: Container(
+                  color: const Color.fromARGB(193, 0, 0, 0),
+                  child: Center(
+                    child: Text(
+                      "+$moreNumber",
+                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          fit: BoxFit.cover,
         ),
       ),
     );
