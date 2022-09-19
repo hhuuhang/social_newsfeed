@@ -33,17 +33,16 @@ class PostImgItem extends StatelessWidget {
           height: height,
           child: Stack(
             fit: StackFit.expand,
-            // clipBehavior: Clip.hardEdge,
             alignment: Alignment.center,
             children: [
               CachedNetworkImage(
-                imageUrl: url,
-                // imageUrl: PhotoUtils.genImgIx(
-                //   url,
-                //   width.toInt(),
-                //   height.toInt(),
-                //   focusFace: false,
-                // ),
+                // imageUrl: url,
+                imageUrl: PhotoUtils.genImgIx(
+                  url,
+                  width.toInt(),
+                  height.toInt(),
+                  focusFace: false,
+                ),
                 fit: BoxFit.cover,
               ),
               Visibility(
