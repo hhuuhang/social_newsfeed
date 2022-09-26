@@ -55,6 +55,8 @@ dependencies:
   go_router: ^3.0.0
   webview_flutter: ^3.0.4
   permission_handler: ^10.0.0
+  intl: ^0.17.0
+  build_runner: ^2.2.1
 
 dev_dependencies:
   flutter_test:

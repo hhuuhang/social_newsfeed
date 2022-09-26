@@ -13,6 +13,9 @@ class Post {
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
 
+  @JsonKey(name: 'created_at', includeIfNull: false)
+  final String? timeCreate;
+
   @JsonKey(name: 'title', includeIfNull: false)
   final String? title;
 
@@ -42,6 +45,7 @@ class Post {
   Post({
     this.id,
     this.status,
+    this.timeCreate,
     this.title,
     this.description,
     this.images,

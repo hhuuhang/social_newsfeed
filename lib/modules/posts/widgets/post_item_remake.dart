@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:social_newsfeed/common/widgets/stateless/item_row.dart';
 import 'package:social_newsfeed/modules/posts/models/post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/action_post.dart';
@@ -13,6 +14,13 @@ class PostItemRemake extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String? timeCreate = post.timeCreate;
+    DateTime timeParse = DateTime.parse(timeCreate!);
+
+    final DateFormat formatter = DateFormat('dd-MM-yyyy  H:m');
+    final String formatted = formatter.format(timeParse);
+
     return Container(
       color: AppColors.backgroundColor,
       padding: const EdgeInsets.fromLTRB(12, 16, 12, 0),
@@ -35,7 +43,10 @@ class PostItemRemake extends StatelessWidget {
                   child: ItemRow(
                     avatarUrl: post.urlUserAvatar,
                     title: post.displayName,
-                    subtitle: 'Time created',
+                    // subtitle: 'Time created',
+                    // subtitle: time! + "  " + date!,
+                    subtitle: formatted,
+
                     // onTap: () => navigateToProfilePage(context, post.user),
                   ),
                 ),

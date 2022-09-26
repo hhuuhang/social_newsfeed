@@ -9,6 +9,7 @@ part of 'post.dart';
 Post _$PostFromJson(Map<String, dynamic> json) => Post(
       id: json['id'] as String?,
       status: json['status'] as int?,
+      timeCreate: json['created_at'] as String?,
       title: json['title'] as String?,
       description: json['description'] as String?,
       images: (json['images'] as List<dynamic>?)
@@ -36,6 +37,7 @@ Map<String, dynamic> _$PostToJson(Post instance) {
 
   writeNotNull('id', instance.id);
   writeNotNull('status', instance.status);
+  writeNotNull('created_at', instance.timeCreate);
   writeNotNull('title', instance.title);
   writeNotNull('description', instance.description);
   writeNotNull('images', instance.images);
