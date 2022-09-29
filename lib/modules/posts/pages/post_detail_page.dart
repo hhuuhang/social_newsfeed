@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:social_newsfeed/common/widgets/stateless/item_row.dart';
 import 'package:social_newsfeed/modules/posts/blocs/post_detail_bloc.dart';
 import 'package:social_newsfeed/modules/posts/models/photo.dart';
@@ -50,6 +51,13 @@ class _PostDetailPageState extends State<PostDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String? timeCreate = post.timeCreate;
+    DateTime timeParse = DateTime.parse(timeCreate!);
+
+    final DateFormat formatter = DateFormat('dd-MM-yyyy  H:m');
+    final String formatted = formatter.format(timeParse);
+
     return Scaffold(
       body: Container(
         color: AppColors.backgroundColor,
@@ -87,7 +95,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                                 child: ItemRow(
                                   avatarUrl: post!.urlUserAvatar,
                                   title: post.displayName,
-                                  subtitle: 'Time created',
+                                  subtitle: formatted,
                                   onTap: () {},
                                 ),
                               ),
