@@ -6,6 +6,7 @@ import 'package:social_newsfeed/modules/posts/widgets/action_post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/grid_image.dart';
 import 'package:social_newsfeed/route/route_name.dart';
 import 'package:social_newsfeed/themes/app_colors.dart';
+import 'package:social_newsfeed/utils/time_create.dart';
 
 class PostItemRemake extends StatelessWidget {
   final Post post;
@@ -15,6 +16,7 @@ class PostItemRemake extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
+
     String? timeCreate = post.timeCreate;
     DateTime timeParse = DateTime.parse(timeCreate!);
 
@@ -45,7 +47,7 @@ class PostItemRemake extends StatelessWidget {
                     title: post.displayName,
                     // subtitle: 'Time created',
                     // subtitle: time! + "  " + date!,
-                    subtitle: formatted,
+                    subtitle: timeCreated(timeCreate),
 
                     // onTap: () => navigateToProfilePage(context, post.user),
                   ),
