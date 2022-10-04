@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:social_newsfeed/common/widgets/stateless/item_row.dart';
 import 'package:social_newsfeed/modules/posts/blocs/post_detail_bloc.dart';
-import 'package:social_newsfeed/modules/posts/models/photo.dart';
 import 'package:social_newsfeed/modules/posts/models/post.dart';
 import 'package:social_newsfeed/modules/posts/widgets/action_post.dart';
-import 'package:social_newsfeed/modules/posts/widgets/grid_image.dart';
 import 'package:social_newsfeed/modules/posts/widgets/list_img_detail.dart';
-import 'package:social_newsfeed/modules/posts/widgets/post_img_item.dart';
 import 'package:social_newsfeed/providers/bloc_provider.dart';
 import 'package:social_newsfeed/themes/app_colors.dart';
+import 'package:social_newsfeed/utils/time_create.dart';
 
 class PostDetailPage extends StatefulWidget {
   final Post post;
@@ -51,12 +48,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
     String? timeCreate = post.timeCreate;
-    DateTime timeParse = DateTime.parse(timeCreate!);
-
-    final DateFormat formatter = DateFormat('dd-MM-yyyy  H:m');
-    final String formatted = formatter.format(timeParse);
 
     return Scaffold(
       body: Container(
@@ -95,7 +87,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                                 child: ItemRow(
                                   avatarUrl: post!.urlUserAvatar,
                                   title: post.displayName,
-                                  subtitle: formatted,
+                                  subtitle: timeCreated(timeCreate!),
                                   onTap: () {},
                                 ),
                               ),

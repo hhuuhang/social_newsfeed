@@ -55,7 +55,7 @@ class GridImage extends StatelessWidget {
       return GestureDetector(
         onTap: () => navigateToPhotoPage([photo], 0, context),
         child: SizedBox(
-          height: width * 3,
+          height: width * 2,
           child: CachedNetworkImage(
             imageUrl: url,
             fit: BoxFit.fitHeight,

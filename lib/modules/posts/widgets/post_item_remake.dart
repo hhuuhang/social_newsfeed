@@ -15,13 +15,7 @@ class PostItemRemake extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-
     String? timeCreate = post.timeCreate;
-    DateTime timeParse = DateTime.parse(timeCreate!);
-
-    final DateFormat formatter = DateFormat('dd-MM-yyyy  H:m');
-    final String formatted = formatter.format(timeParse);
 
     return Container(
       color: AppColors.backgroundColor,
@@ -47,7 +41,7 @@ class PostItemRemake extends StatelessWidget {
                     title: post.displayName,
                     // subtitle: 'Time created',
                     // subtitle: time! + "  " + date!,
-                    subtitle: timeCreated(timeCreate),
+                    subtitle: timeCreated(timeCreate!),
 
                     // onTap: () => navigateToProfilePage(context, post.user),
                   ),
