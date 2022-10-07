@@ -35,7 +35,7 @@ class DashBoardPage extends StatelessWidget {
               ),
               CardScreen(
                 title: listScreen[1],
-                pageWidget: const WelcomePage(),
+                pageWidget: const WelcomePageApp(),
               ),
               CardScreen(
                 title: listScreen[2],

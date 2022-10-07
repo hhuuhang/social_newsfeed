@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:social_newsfeed/blocs/app_state_bloc.dart';
+import 'package:social_newsfeed/common/widgets/stateless/error_popup.dart';
 import 'package:social_newsfeed/modules/02_login/page/login_page.dart';
-import 'package:social_newsfeed/modules/06_home_page/page/dash_board.dart';
+import 'package:social_newsfeed/modules/authentication/bloc/authentication_bloc.dart';
+import 'package:social_newsfeed/modules/authentication/enum/login_state.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/primary_button.dart';
 import 'package:social_newsfeed/modules/common_widget/widgets/buttons/white_button.dart';
+import 'package:social_newsfeed/providers/bloc_provider.dart';
 import 'package:social_newsfeed/themes/app_fonts.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class WelcomePageApp extends StatefulWidget {
+  const WelcomePageApp({Key? key}) : super(key: key);
+
+  @override
+  State<WelcomePageApp> createState() => _WelcomePageAppState();
+}
+
+class _WelcomePageAppState extends State<WelcomePageApp> {
+  AppStateBloc? get appStateBloc => BlocProvider.of<AppStateBloc>(context);
+  AuthenticationBloc? get authenBloc =>
+      BlocProvider.of<AuthenticationBloc>(context);
 
   @override
   Widget build(BuildContext context) {
@@ -103,12 +117,7 @@ class WelcomePage extends StatelessWidget {
                       width: 30,
                       child: InkWell(
                         child: Image.asset('assets/icons/google.png'),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const DashboardPage()));
-                        },
+                        onTap: _signInWithGmail,
                       ),
                     ),
                   ],
@@ -121,6 +130,44 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> _signInWithGmail() async {
+    // loading!(true);
+    try {
+      final loginState = await authenBloc!.loginWithGmail();
+      switch (loginState) {
+        case LoginState.success:
+          return _changeAppState();
+        case LoginState.newUser:
+          // handle flow newUser
+          break;
+        default:
+          break;
+      }
+    } on PlatformException catch (e) {
+      // loading!(false);
+      _handleErrorPlatformException(e);
+    } catch (e) {
+      _showDialog('Something went wrong!!!');
+    }
+  }
+
+  void _changeAppState() {
+    appStateBloc!.changeAppState(AppState.authorized);
+  }
+
+  void _handleErrorPlatformException(PlatformException e) {
+    if (e.code != 'ERROR_ABORTED_BY_USER') {
+      _showDialog(e.message ?? '');
+    }
+  }
+
+  void _showDialog(String content) {
+    showDialog(
+      context: context,
+      builder: (ctx) => ErrorPopup(content: content),
     );
   }
 }

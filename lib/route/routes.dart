@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_newsfeed/modules/01_welcome_page/page/welcome_page.dart';
 import 'package:social_newsfeed/modules/06_home_page/page/dash_board.dart';
 import 'package:social_newsfeed/modules/06_home_page/page/home_page.dart';
 import 'package:social_newsfeed/modules/authentication/pages/welcome_page.dart';
@@ -54,7 +55,8 @@ class Routes {
       case '/':
         return _buildRoute(
           settings,
-          const WelcomePage(),
+          // const WelcomePage(),
+          const WelcomePageApp(),
         );
       default:
         return _errorRoute();

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:social_newsfeed/modules/authentication/wrapper/auth_plugin/auth_plugin.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -29,6 +30,9 @@ class AuthGmail implements AuthLogin {
       }
       final googleSignInAuthentication =
           await googleSignInAccount.authentication;
+
+      debugPrint(
+          "Day la Google SignIn Token: ${googleSignInAuthentication.accessToken}");
       return AuthResult(
         LoginStatus.loggedIn,
         googleSignInAuthentication.accessToken,

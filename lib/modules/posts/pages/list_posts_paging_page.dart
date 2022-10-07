@@ -44,7 +44,7 @@ class _ListPostsPagingRepoState extends State<ListPostsPagingRepo>
         physics: const AlwaysScrollableScrollPhysics(),
         controller: _scrollCtrl,
         slivers: <Widget>[
-          const SliverAppBar(
+          SliverAppBar(
             title: HomeHeader(),
             snap: true,
             floating: true,
